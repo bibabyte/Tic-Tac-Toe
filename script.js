@@ -7,86 +7,33 @@ const gameboard = () => {
 	let container = document.querySelector('#container');
 	// Create a 2D array of divs
 	let boxes = 9;
-	
-	/*container.style.gridTemplateColumns = `repeat(${boxes}, 1fr)`;
-	container.style.gridTemplateRows = `repeat(${boxes}, 1fr)`;*/
-	
 	// Dynamic sizing
 	if (window.innerHeight > window.innerWidth) {
 		container.style.width = '75vw';
 	} else {
 		container.style.width = '75vh';
 	}
+	// Populate boxes
 	for (boxes; boxes > 0; boxes--) {
 		let board = document.createElement('div');
 		board.classList.add('boxes');
-		board.textContent = boxes;
+			board.textContent = boxes;
+		board.addEventListener('click', turn);
 		container.appendChild(board);	
-
 	}
 }
 gameboard();
 
 
-
-
-
-
-/*function setGrid() {
-	const gridContainer = document.createElement('div');
-	container.appendChild(gridContainer);
-	let gridWidth = 16;
-	let gridHeight= Math.floor(gridWidth * 0.75);
-	
-	// Set dynamic rows and columns (CSS grid)
-	gridContainer.className = 'boxes';
-	gridContainer.style.gridTemplateColumns = `repeat(${gridWidth}, 1fr)`;
-	gridContainer.style.gridTemplateRows = `repeat(${gridHeight}, 1fr)`;*/
-
-	/*// Set etch-a-sketch window size dependent on browser orientation
-	//------to learn: how to change if viewport changes after load-----
-	if(window.innerHeight > window.innerWidth){
-		gridContainer.style.width = `70vw`;
-		gridContainer.style.height = `52.5vw`;
-		
+function turn(e) {
+	if (player.id = 'x'){
+		e.target.textContent = 'X';
 	}
-	else {
-		gridContainer.style.width = `70vh`;
-		gridContainer.style.height = `52.5vh`;
-		
-	}
-*/
-	// Place divs in the etch-a-sketch
-	/*for(let i = gridWidth * gridHeight; i > 0; i--){
-		let etchGrid = document.createElement('div');
-		etchGrid.className = 'boxes';
-		
-	//	etchGrid.addEventListener("touchstart", touchStart);
-	
-		gridContainer.appendChild(etchGrid);
-	}
-	console.log('hi');
-} */
+	e.target.textContent = 'O';
+}
 
 
 
-
-
-/*function setGrid() {
-
-	
-
-	// Place divs in the etch-a-sketch
-	for(let i = gridWidth * gridHeight; i > 0; i--){
-		let etchGrid = document.createElement('div');
-		etchGrid.className = 'etchGridBox';
-		
-		etchGrid.addEventListener("touchstart", touchStart);
-	
-		gridContainer.appendChild(etchGrid);
-	}
-} 
-*/
 
 
 
@@ -100,9 +47,9 @@ gameboard();
 console.log(board);*/
 
 // Players
-const player = (name, symbol) => {
+const player = (name, id) => {
 	var player = Object.create(player.prototype);
-	return { name, symbol };
+	return { name, id };
 }
 
 
@@ -112,3 +59,19 @@ const player = (name, symbol) => {
 }*/
 
 // Gameflow
+
+
+
+// ===== NOTES ==== \\
+/*
+	create players with ID x, and o
+		each person inputs their name and the first chooses symbol
+			eventually have player choose any key and have (turn()) input that
+	input 'click' event (turn()) to the 2-d board array
+	game mechanics
+		how does the computer know when there's a winner?
+		person v computer
+		
+	make it look good
+	
+	*/
