@@ -1,3 +1,24 @@
-div {
-	border: 1px solid #999;
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
+
+.boxes {
+	display: flex;
+	width: 25vw;
+	height: 25vw;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+	border: 1px double #32a1c3;
+}
+
+#container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto auto;
+}
+
